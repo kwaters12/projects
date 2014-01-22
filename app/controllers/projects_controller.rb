@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.order(hit_count: :desc)
+    @new_projects = Project.limit(3).order(created_at: :desc)
   end
 
   def show
