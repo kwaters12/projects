@@ -1,0 +1,14 @@
+<h1>Welcome to My Discussions Page</h1>
+
+<%= link_to "New Discussion", new_discussion_path, class: "btn btn-primary" %>
+<%= link_to "Projects Page", projects_path, class: "btn btn-primary" %>
+<hr>
+<% @discussions.each do |discussion| %>
+	<p><%= link_to "#{discussion.id}. #{discussion.title}", discussion %></p>
+	
+	<p><%= discussion.body %></p>
+	<%= link_to "Delete", discussion, method: :delete, data: { confirm: 'Are you sure?' } %>
+	<%= link_to "Edit", edit_discussion_path(discussion) %>
+
+	<hr>
+<% end %>

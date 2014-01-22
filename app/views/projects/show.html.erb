@@ -1,0 +1,12 @@
+<h1><%= @project.title %></h1>
+<p><%= @project.body %></p>
+<p>Likes: <%= @project.like_counter %></p>
+<p>Hit Count: <%= @project.hit_count %></p>
+<% if session[:project_ids].present? && session[:project_ids].include?(@project.id) %>
+  <%= link_to "Liked", "javascript:void(0)", disabled: "disabled", class: "btn btn-primary" %>
+<% else %>
+<%= link_to "Like", like_project_path(@project), class: "btn btn-primary" %>
+<% end %>
+
+<hr>
+<%= link_to "All Projects", projects_path, class: "btn btn-primary" %>

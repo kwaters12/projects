@@ -1,0 +1,18 @@
+<%= form_for @discussion do |f| %> 
+	
+	<div class="form-group">
+	<%= f.label :title, "My Discussion" %>
+	<%= f.text_field :title, class: "form-control" %>
+	</div>
+	<br>
+
+	<div class="form-group">
+	<%= f.label :body, "Discussion Description" %>
+	<%= f.text_area :body, class: "form-control" %>
+	<br>
+    </div>
+
+	<%= f.submit "Submit", class: "btn btn-primary" %>
+	<%= link_to "Back", discussions_path, class: "btn btn-danger" %>
+
+<% end %>

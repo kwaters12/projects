@@ -1,0 +1,14 @@
+<h1>Welcome to My Projects Page</h1>
+
+<%= link_to "New Project", new_project_path, class: "btn btn-primary" %>
+<%= link_to "Discussions Page", discussions_path, class: "btn btn-primary" %>
+<hr>
+<% @projects.each do |project| %>
+	<p><%= link_to "#{project.id}. #{project.title}", project %></p>
+	
+	<p><%= project.body %></p>
+	<%= link_to "Delete", project, method: :delete, data: { confirm: 'Are you sure?' } %>
+	<%= link_to "Edit", edit_project_path(project) %>
+  <p>Hit Count: <%= project.hit_count %></p>
+	<hr>
+<% end %>
